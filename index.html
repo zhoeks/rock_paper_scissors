@@ -47,15 +47,23 @@
                 }
             }
             function game() {
+                let playerScore = 0;
+                let computerScore = 0;
                 for (let i = 1; i <= 5; i++) {
                     let roundResult = playRound(playerSelection, computerSelection)
-                    let playerScore = 0;
-                    let computerScore = 0;
                     let winOrLoss = roundResult.slice(4, 5)          
-                    console.log(winOrLoss)   
+                      if (winOrLoss == 'W') {
+                        playerScore++
+                      } else
+                      if (winOrLoss == 'L') {
+                        computerScore++
+                      } else {
+                        console.log('Tie!')
+                      }
                 }
+                console.log(playerScore + ' ' + computerScore);
             }
-            const playerSelection = 'Rock';
+            const playerSelection = 'Scissors';
             //const playerSelection = prompt('Choose your fighter');
             const computerSelection = getComputerChoice();
             //console.log(playRound(playerSelection, computerSelection));
