@@ -8,7 +8,15 @@
         <script>
             function getComputerChoice() {
                 let randomNumber = Math.random();
-                return randomNumber
+                if (randomNumber <= .33) {
+                    return 'Rock';
+                } else
+                if (randomNumber <= .67) {
+                    return 'Paper';
+                } else {
+                    return 'Scissors'
+                }
+                    
             }
             console.log(getComputerChoice());
             
