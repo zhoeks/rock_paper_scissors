@@ -46,9 +46,19 @@
                     return 'You tie! ' + playerSelection + ' is the same as ' + computerSelection
                 }
             }
+            function game() {
+                for (let i = 1; i <= 5; i++) {
+                    let roundResult = playRound(playerSelection, computerSelection)
+                    let playerScore = 0;
+                    let computerScore = 0;
+                    let winOrLoss = roundResult.slice(4, 4)          
+                    console.log(roundResult)   
+                }
+            }
             const playerSelection = 'Rock';
+            //const playerSelection = prompt('Choose your fighter');
             const computerSelection = getComputerChoice();
-            console.log(playRound(playerSelection, computerSelection));
+            //console.log(playRound(playerSelection, computerSelection));
         </script>
     </body>
 </html>
