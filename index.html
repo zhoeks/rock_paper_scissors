@@ -18,31 +18,31 @@
                 }  
             }
             function playRound(playerSelection, computerSelection) {
-                if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
+                if (playerSelection == 'rock' && computerSelection == 'Scissors') {
                     return 'You Win! ' + playerSelection + ' beats ' + computerSelection
                 } else
-                if (playerSelection == 'Rock' && computerSelection == 'Paper') {
+                if (playerSelection == 'rock' && computerSelection == 'Paper') {
                     return 'You Lose! ' + computerSelection + ' beats ' + playerSelection
                 } else
-                if (playerSelection == 'Rock' && computerSelection == 'Rock') {
+                if (playerSelection == 'rock' && computerSelection == 'Rock') {
                     return 'You tie! ' + playerSelection + ' is the same as ' + computerSelection
                 } else
-                if (playerSelection == 'Paper' && computerSelection == 'Scissors') {
+                if (playerSelection == 'paper' && computerSelection == 'Scissors') {
                     return 'You Lose! ' + computerSelection + ' beats ' + playerSelection
                 } else
-                if (playerSelection == 'Paper' && computerSelection == 'Rock') {
+                if (playerSelection == 'paper' && computerSelection == 'Rock') {
                     return 'You Win! ' + playerSelection + ' beats ' + computerSelection
                 } else
-                if (playerSelection == 'Paper' && computerSelection == 'Paper') {
+                if (playerSelection == 'paper' && computerSelection == 'Paper') {
                     return 'You tie! ' + playerSelection + ' is the same as ' + computerSelection
                 } else
-                if (playerSelection == 'Scissors' && computerSelection == 'Rock') {
+                if (playerSelection == 'scissors' && computerSelection == 'Rock') {
                     return 'You Lose! ' + computerSelection + ' beats ' + playerSelection
                 } else
-                if (playerSelection == 'Scissors' && computerSelection == 'Paper') {
+                if (playerSelection == 'scissors' && computerSelection == 'Paper') {
                     return 'You Win! ' + playerSelection + ' beats ' + computerSelection
                 } else
-                if (playerSelection == 'Scissors' && computerSelection == 'Scissors') {
+                if (playerSelection == 'scissors' && computerSelection == 'Scissors') {
                     return 'You tie! ' + playerSelection + ' is the same as ' + computerSelection
                 }
             }
@@ -50,22 +50,28 @@
                 let playerScore = 0;
                 let computerScore = 0;
                 for (let i = 1; i <= 5; i++) {
+                    let computerSelection = getComputerChoice();
+                    let playerSelection = prompt('Choose Your Fighter').toLowerCase();
                     let roundResult = playRound(playerSelection, computerSelection)
                     let winOrLoss = roundResult.slice(4, 5)          
                       if (winOrLoss == 'W') {
+                        console.log(roundResult);
                         playerScore++
                       } else
                       if (winOrLoss == 'L') {
+                        console.log(roundResult);
                         computerScore++
                       } else {
-                        console.log('Tie!')
+                        console.log(roundResult);
+                        i--;
                       }
+                      console.log(playerScore + ' ' + computerScore);
                 }
-                console.log(playerScore + ' ' + computerScore);
+                
             }
-            const playerSelection = 'Scissors';
+            
             //const playerSelection = prompt('Choose your fighter');
-            const computerSelection = getComputerChoice();
+            
             //console.log(playRound(playerSelection, computerSelection));
         </script>
     </body>
