@@ -57,13 +57,14 @@
             }
             let playerSelection = '';
             const buttons = document.querySelectorAll('button');
-
+            //assigns playerSelection for each button click
             buttons.forEach((button) => {
                 button.addEventListener('click', (e) => {
                     playerSelection = button.id;
                     return playerSelection;
                 });
                 });
+            //plays a game for each click using updated selection
             buttons.forEach((button) => {
                 button.addEventListener('click', game)
             });
@@ -71,12 +72,9 @@
             //play the individual game. Initial function to call in console
             function game() {
                 let playerScore = 0;
-                let computerScore = 0;
-                //Iterate through each game
-                //for (let i = 1; i <= 5; i++) {
+                let computerScore = 0;                
                     //recalculate computer choice each iteration
                     let computerSelection = getComputerChoice();
-                    //prompt for new user choice each iteration
                     // assign return message each iteration
                     let roundResult = playRound(playerSelection, computerSelection)
                     //assign single letter as result code
@@ -91,13 +89,10 @@
                       } else {
                         console.log(roundResult);
                         //this ensures the game is a best of 5 stopping when 5 'win or lose' games are completed
-                        //i--;
                       }
                       console.log(playerScore + ' ' + computerScore);
                 }
-                
-            //}
-        
+                        
         </script>
     </body>
 </html>
