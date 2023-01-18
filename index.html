@@ -6,7 +6,11 @@
     </head>
     <body>
         <h1>Let's Play a Game</h1>
-            <button onclick="game()">Rock, Paper, Scissors</button>
+        <div id="buttons">
+            <button>Rock</button>
+            <button>Paper</button>
+            <button>Scissors</button>
+        </div>
         <script>
             //Assign value to computer choice based on random number
             function getComputerChoice() {
@@ -51,7 +55,7 @@
                 }
             }
             //play the individual game. Initial function to call in console
-            function game() {
+            /*function game() {
                 let playerScore = 0;
                 let computerScore = 0;
                 //Iterate through each game
@@ -79,7 +83,7 @@
                       console.log(playerScore + ' ' + computerScore);
                 }
                 
-            }
+            }*/
         
         </script>
     </body>
