@@ -7,9 +7,9 @@
     <body>
         <h1>Let's Play a Game</h1>
         <div id="buttons">
-            <button>Rock</button>
-            <button>Paper</button>
-            <button>Scissors</button>
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
         </div>
         <script>
             //Assign value to computer choice based on random number
@@ -54,6 +54,15 @@
                     return 'You tie! ' + playerSelection + ' is the same as ' + computerSelection
                 }
             }
+
+            const buttons = document.querySelectorAll('button');
+
+            buttons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    playRound(button.id, computerSelection)
+                });
+            });
+            console.log()
             //play the individual game. Initial function to call in console
             /*function game() {
                 let playerScore = 0;
