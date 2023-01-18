@@ -26,6 +26,7 @@
             }
             //Return text based on results of single game
             function playRound(playerSelection, computerSelection) {
+                
                 if (playerSelection == 'rock' && computerSelection == 'Scissors') {
                     return 'You Win! ' + playerSelection + ' beats ' + computerSelection
                 } else
@@ -54,25 +55,28 @@
                     return 'You tie! ' + playerSelection + ' is the same as ' + computerSelection
                 }
             }
-
+            let playerSelection = '';
             const buttons = document.querySelectorAll('button');
 
             buttons.forEach((button) => {
-                button.addEventListener('click', () => {
-                    playRound(button.id, computerSelection)
+                button.addEventListener('click', (e) => {
+                    playerSelection = button.id;
+                    return playerSelection;
                 });
+                });
+            buttons.forEach((button) => {
+                button.addEventListener('click', game)
             });
-            console.log()
+        console.log(playerSelection);
             //play the individual game. Initial function to call in console
-            /*function game() {
+            function game() {
                 let playerScore = 0;
                 let computerScore = 0;
                 //Iterate through each game
-                for (let i = 1; i <= 5; i++) {
+                //for (let i = 1; i <= 5; i++) {
                     //recalculate computer choice each iteration
                     let computerSelection = getComputerChoice();
                     //prompt for new user choice each iteration
-                    let playerSelection = prompt('Choose Your Fighter').toLowerCase();
                     // assign return message each iteration
                     let roundResult = playRound(playerSelection, computerSelection)
                     //assign single letter as result code
@@ -87,12 +91,12 @@
                       } else {
                         console.log(roundResult);
                         //this ensures the game is a best of 5 stopping when 5 'win or lose' games are completed
-                        i--;
+                        //i--;
                       }
                       console.log(playerScore + ' ' + computerScore);
                 }
                 
-            }*/
+            //}
         
         </script>
     </body>
