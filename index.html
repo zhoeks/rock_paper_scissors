@@ -3,101 +3,18 @@
     <head>
         <meta charset="UTF-8">
         <title>Page Title></title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1>Let's Play a Game</h1>
+        <div id="container">
+        <h1>Pick One Son</h1>
         <div id="buttons">
             <button id="rock">Rock</button>
             <button id="paper">Paper</button>
             <button id="scissors">Scissors</button>
         </div>
         <div id="results"></div>
-        <script>
-            //Assign value to computer choice based on random number
-            function getComputerChoice() {
-                let randomNumber = Math.random();
-                if (randomNumber <= .33) {
-                    return 'Rock';
-                } else
-                if (randomNumber <= .67) {
-                    return 'Paper';
-                } else {
-                    return 'Scissors'
-                }  
-            }
-            //Return text based on results of single game
-            function playRound(playerSelection, computerSelection) {
-                
-                if (playerSelection == 'rock' && computerSelection == 'Scissors') {
-                    return 'You Win! ' + playerSelection + ' beats ' + computerSelection
-                } else
-                if (playerSelection == 'rock' && computerSelection == 'Paper') {
-                    return 'You Lose! ' + computerSelection + ' beats ' + playerSelection
-                } else
-                if (playerSelection == 'rock' && computerSelection == 'Rock') {
-                    return 'You tie! ' + playerSelection + ' is the same as ' + computerSelection
-                } else
-                if (playerSelection == 'paper' && computerSelection == 'Scissors') {
-                    return 'You Lose! ' + computerSelection + ' beats ' + playerSelection
-                } else
-                if (playerSelection == 'paper' && computerSelection == 'Rock') {
-                    return 'You Win! ' + playerSelection + ' beats ' + computerSelection
-                } else
-                if (playerSelection == 'paper' && computerSelection == 'Paper') {
-                    return 'You tie! ' + playerSelection + ' is the same as ' + computerSelection
-                } else
-                if (playerSelection == 'scissors' && computerSelection == 'Rock') {
-                    return 'You Lose! ' + computerSelection + ' beats ' + playerSelection
-                } else
-                if (playerSelection == 'scissors' && computerSelection == 'Paper') {
-                    return 'You Win! ' + playerSelection + ' beats ' + computerSelection
-                } else
-                if (playerSelection == 'scissors' && computerSelection == 'Scissors') {
-                    return 'You tie! ' + playerSelection + ' is the same as ' + computerSelection
-                }
-            }
-            let playerSelection = '';
-
-            const buttons = document.querySelectorAll('button');
-            //assigns playerSelection for each button click
-            buttons.forEach((button) => {
-                button.addEventListener('click', (e) => {
-                    playerSelection = button.id;
-                    return playerSelection;
-                });
-                });
-            //plays a game for each click using updated selection
-            buttons.forEach((button) => {
-                button.addEventListener('click', game)
-            });
-
-            //play the individual game. Initial function to call in console
-            function game() {
-                let playerScore = 0;
-                let computerScore = 0;                
-                    //recalculate computer choice each iteration
-                    let computerSelection = getComputerChoice();
-                    // assign return message each iteration
-                    let roundResult = playRound(playerSelection, computerSelection)
-                    //assign single letter as result code
-                    let winOrLoss = roundResult.slice(4, 5)          
-                      if (winOrLoss == 'W') {
-                        playerScore++
-                        } else
-                      if (winOrLoss == 'L') {
-                        computerScore++
-                      } else {
-                        console.log(roundResult);
-                        //this ensures the game is a best of 5 stopping when 5 'win or lose' games are completed
-                      }
-                      div.textContent = `${roundResult} The score is ${playerScore} to ${computerScore}`;
-                      console.log(playerScore + ' ' + computerScore);
-                }
-                const div = document.createElement('div');
-                const container = document.querySelector('#results');
-                div.classList.add('score');
-                container.appendChild(div);
-                        
-        </script>
+        </div>
+        <script src="script.js"></script>
     </body>
 </html>
