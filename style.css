@@ -12,3 +12,13 @@
     font-size: 20px;
     color: aqua;
 }
+
+.win {
+    background-color: greenyellow;
+    color: black;
+}
+
+.loss {
+    background-color: red;
+    color: whitesmoke;
+}

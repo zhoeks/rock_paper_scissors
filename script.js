@@ -15,7 +15,8 @@
     }  
 }
 //Return text based on results of single game
-function playRound(playerSelection, computerSeletion) {
+const playRound = (playerSelection, computerSelection) => {
+    //get new computer choice each round
     computerSelection = getComputerChoice();
     if (playerSelection == 'rock' && computerSelection == 'Scissors') {
         return 'You Win! ' + playerSelection + ' beats ' + computerSelection
@@ -46,47 +47,56 @@ function playRound(playerSelection, computerSeletion) {
     }
 }
 
+//play the individual game. Initial function to call in console
+const testScore = () => {
+    playerScore === 5 || computerScore === 5 ?
+    gameOver() :
+    false;    
+}
 
+const gameOver = () => {
+    playerScore === 5 ? 
+    alert(`Congrats bro, you're a champion`) 
+    : alert(`You lost bro, just give it up`);
+    playerScore = 0;
+    computerScore = 0;
+}
+
+const game = () => {
+    //recalculate computer choice each iteration
+    let computerSelection = getComputerChoice();
+    // assign return message each iteration
+    let roundResult = playRound(playerSelection, computerSelection)
+    //assign single letter as result code
+    let winOrLoss = roundResult.slice(4, 5)          
+    if (winOrLoss == 'W') {
+        playerScore += 1;
+        div.classList.add('win');
+        div.classList.remove('loss');
+    } else
+    if (winOrLoss == 'L') {
+        computerScore += 1;
+        div.classList.add('loss');
+        div.classList.remove('win');
+    } else {
+        div.classList.remove('win');
+        div.classList.remove('loss');
+    }
+    div.textContent = `${roundResult} The score is ${playerScore} to ${computerScore}`;
+}
 const buttons = document.querySelectorAll('button');
 //assigns playerSelection for each button click
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
-        playerSelection = button.id;
-        return playerSelection;
+    playerSelection = button.id;
+        game();
+        testScore();
     });
-    });
-//plays a game for each click using updated selection
-buttons.forEach((button) => {
-    button.addEventListener('click', game)
 });
-//set scores to 0 to start game
+    
+const div = document.createElement('div');
+const container = document.querySelector('#container');
+div.classList.add('score');
 
-//count score, stopping game once score of 5 is reached
-
-
-//play the individual game. Initial function to call in console
-function game() {
-                    
-        //recalculate computer choice each iteration
-        let computerSelection = getComputerChoice();
-        // assign return message each iteration
-        let roundResult = playRound(playerSelection, computerSelection)
-        //assign single letter as result code
-        let winOrLoss = roundResult.slice(4, 5)          
-          if (winOrLoss == 'W') {
-            playerScore += 1;
-            } else
-          if (winOrLoss == 'L') {
-            computerScore += 1;
-          } else {
-            console.log(roundResult);
-            //this ensures the game is a best of 5 stopping when 5 'win or lose' games are completed
-          }
-          div.textContent = `${roundResult} The score is ${playerScore} to ${computerScore}`;
-          }
-    const div = document.createElement('div');
-    const container = document.querySelector('#container');
-    div.classList.add('score');
-
-    container.appendChild(div);
+container.appendChild(div);
             
